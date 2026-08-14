@@ -1,3 +1,5 @@
+using System.Reflection.Emit;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -12,10 +14,18 @@ namespace WinFormsApp1
         double[] valores = { 1, 100, 39.3701, 3.28084, 1.1963, 1.09361, 0.001, 0.000621371 };
         private void button1_Click(object sender, EventArgs e)
         {
-            int de = cboDe.SelectedIndex, a = cboA.SelectedIndex;
-            double cantidad = double.Parse(txtCantidad .Text);
+            try
+            {
+                int de = cboDe.SelectedIndex, a = cboA.SelectedIndex;
+                double cantidad = double.Parse(tbCantidad.Text);
 
-            double respuesta = valores[a] / valores[de] * cantidad;
+                double respuesta = valores[a] / valores[de] * cantidad;
+                lblRespuesta.Text = respuesta.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                lblRespuesta.Text = ex.Message;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,6 +34,11 @@ namespace WinFormsApp1
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

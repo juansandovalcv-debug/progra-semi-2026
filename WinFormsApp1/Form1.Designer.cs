@@ -32,7 +32,7 @@
             lblDe = new Label();
             lblA = new Label();
             txtCantidad = new Label();
-            textBox3 = new TextBox();
+            tbCantidad = new TextBox();
             lblRespuesta = new Label();
             cboDe = new ComboBox();
             cboA = new ComboBox();
@@ -79,12 +79,13 @@
             txtCantidad.TabIndex = 5;
             txtCantidad.Text = "cantidad:";
             // 
-            // textBox3
+            // tbCantidad
             // 
-            textBox3.Location = new Point(183, 192);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 6;
+            tbCantidad.Location = new Point(183, 192);
+            tbCantidad.Name = "tbCantidad";
+            tbCantidad.Size = new Size(125, 27);
+            tbCantidad.TabIndex = 6;
+            tbCantidad.TextChanged += textBox3_TextChanged;
             // 
             // lblRespuesta
             // 
@@ -124,7 +125,7 @@
             Controls.Add(cboA);
             Controls.Add(cboDe);
             Controls.Add(lblRespuesta);
-            Controls.Add(textBox3);
+            Controls.Add(tbCantidad);
             Controls.Add(txtCantidad);
             Controls.Add(lblA);
             Controls.Add(lblDe);
@@ -142,7 +143,7 @@
         private Label lblDe;
         private Label lblA;
         private Label txtCantidad;
-        private TextBox textBox3;
+        private TextBox tbCantidad;
         private Label lblRespuesta;
         private ComboBox cboDe;
         private ComboBox cboA;
