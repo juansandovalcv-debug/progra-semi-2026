@@ -22,9 +22,9 @@ namespace WinFormsApp1
                 double respuesta = valores[a] / valores[de] * cantidad;
                 lblRespuesta.Text = respuesta.ToString("N2");
             }
-            catch (Exception ex)
+            catch 
             {
-                lblRespuesta.Text = ex.Message;
+                lblRespuesta.Text = "La operación falló, utiliza caracteres numéricos válidos porfavor";
             }
         }
 
