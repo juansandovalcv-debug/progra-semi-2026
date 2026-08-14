@@ -93,9 +93,9 @@
             lblRespuesta.Font = new Font("Times New Roman", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRespuesta.Location = new Point(396, 195);
             lblRespuesta.Name = "lblRespuesta";
-            lblRespuesta.Size = new Size(100, 20);
+            lblRespuesta.Size = new Size(109, 20);
             lblRespuesta.TabIndex = 7;
-            lblRespuesta.Text = "respuesta: ?";
+            lblRespuesta.Text = "respuesta: ??";
             // 
             // cboDe
             // 
