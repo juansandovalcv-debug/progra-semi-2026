@@ -24,7 +24,7 @@ namespace WinFormsApp1
             }
             catch 
             {
-                lblRespuesta.Text = "La operación falló, utiliza caracteres numéricos válidos porfavor";
+                lblRespuesta.Text = "La operación falló, utiliza caracteres numéricos válidos";
             }
         }
 
