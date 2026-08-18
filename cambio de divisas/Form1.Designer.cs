@@ -103,7 +103,7 @@
             // 
             // btnCalcular
             // 
-            btnCalcular.Location = new Point(340, 380);
+            btnCalcular.Location = new Point(309, 379);
             btnCalcular.Name = "btnCalcular";
             btnCalcular.Size = new Size(175, 48);
             btnCalcular.TabIndex = 7;
