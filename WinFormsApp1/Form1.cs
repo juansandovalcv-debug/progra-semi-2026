@@ -5,11 +5,19 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+       
+        private readonly double[] _factoresArea = { 0.09290304, 0.698896, 0.83612736, 1.0, 437.5, 6988.96, 10000.0 };
+
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cboDe.SelectedIndex = 0; 
+            cboA.SelectedIndex = 3;  
+        }
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(txtMonto.Text, out double monto) || monto <= 0)
@@ -48,6 +56,26 @@ namespace WinFormsApp1
             }
 
             lblRespuesta.Text = "valor a pagar: Monto fuera de rango";
+        }
+
+        private void btnConvertir_Click(object sender, EventArgs e)
+        {
+            if (!double.TryParse(txtCantidad.Text, out double cantidad) || cantidad < 0)
+            {
+                lblResultadoArea.Text = "Resultado: Ingrese una cantidad válida";
+                return;
+            }
+
+            if (cboDe.SelectedIndex < 0 || cboA.SelectedIndex < 0)
+            {
+                lblResultadoArea.Text = "Resultado: Seleccione las unidades";
+                return;
+            }
+
+            double enMetros = cantidad * _factoresArea[cboDe.SelectedIndex];
+            double resultado = enMetros / _factoresArea[cboA.SelectedIndex];
+
+            lblResultadoArea.Text = $"Resultado: {resultado:0.####} {cboA.SelectedItem}";
         }
     }
 }
