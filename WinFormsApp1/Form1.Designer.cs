@@ -1,16 +1,9 @@
-﻿namespace WinFormsApp1
+namespace WinFormsApp1
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,88 +13,73 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            lblSerie = new Label();
-            txtSerie = new TextBox();
-            ltsValores = new ListBox();
-            btnProcesar = new Button();
-            btnLimpiar = new Button();
+            txtMonto = new TextBox();
+            label1 = new Label();
+            lblRespuesta = new Label();
+            btnCalcular = new Button();
             SuspendLayout();
             // 
-            // lblSerie
+            // label1
             // 
-            lblSerie.AutoSize = true;
-            lblSerie.Location = new Point(62, 57);
-            lblSerie.Name = "lblSerie";
-            lblSerie.Size = new Size(43, 20);
-            lblSerie.TabIndex = 0;
-            lblSerie.Text = "serie:";
+            label1.AutoSize = true;
+            label1.Location = new Point(30, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(219, 20);
+            label1.TabIndex = 0;
+            label1.Text = "monto de actividad economica:";
             // 
-            // txtSerie
+            // txtMonto
             // 
-            txtSerie.Location = new Point(128, 54);
-            txtSerie.Name = "txtSerie";
-            txtSerie.Size = new Size(230, 27);
-            txtSerie.TabIndex = 1;
+            txtMonto.Location = new Point(260, 37);
+            txtMonto.Name = "txtMonto";
+            txtMonto.Size = new Size(150, 27);
+            txtMonto.TabIndex = 1;
             // 
-            // ltsValores
+            // btnCalcular
             // 
-            ltsValores.FormattingEnabled = true;
-            ltsValores.Location = new Point(46, 151);
-            ltsValores.Name = "ltsValores";
-            ltsValores.Size = new Size(312, 244);
-            ltsValores.TabIndex = 2;
+            btnCalcular.Location = new Point(30, 90);
+            btnCalcular.Name = "btnCalcular";
+            btnCalcular.Size = new Size(120, 40);
+            btnCalcular.TabIndex = 2;
+            btnCalcular.Text = "calcular";
+            btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Click += btnCalcular_Click;
             // 
-            // btnProcesar
+            // lblRespuesta
             // 
-            btnProcesar.Location = new Point(471, 57);
-            btnProcesar.Name = "btnProcesar";
-            btnProcesar.Size = new Size(203, 104);
-            btnProcesar.TabIndex = 3;
-            btnProcesar.Text = "procesar";
-            btnProcesar.UseVisualStyleBackColor = true;
-            btnProcesar.Click += btnProcesar_Click;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(471, 281);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(203, 104);
-            btnLimpiar.TabIndex = 4;
-            btnLimpiar.Text = "limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
+            lblRespuesta.AutoSize = true;
+            lblRespuesta.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblRespuesta.Location = new Point(30, 160);
+            lblRespuesta.Name = "lblRespuesta";
+            lblRespuesta.Size = new Size(160, 25);
+            lblRespuesta.TabIndex = 3;
+            lblRespuesta.Text = "valor a pagar: ??";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnProcesar);
-            Controls.Add(ltsValores);
-            Controls.Add(txtSerie);
-            Controls.Add(lblSerie);
+            ClientSize = new Size(460, 230);
+            Controls.Add(lblRespuesta);
+            Controls.Add(btnCalcular);
+            Controls.Add(txtMonto);
+            Controls.Add(label1);
             Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Impuesto a Actividades Económicas";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblSerie;
-        private TextBox txtSerie;
-        private ListBox ltsValores;
-        private Button btnProcesar;
-        private Button btnLimpiar;
+        private TextBox txtMonto;
+        private Label label1;
+        private Label lblRespuesta;
+        private Button btnCalcular;
     }
 }

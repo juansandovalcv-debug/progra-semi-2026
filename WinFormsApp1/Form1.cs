@@ -1,11 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormsApp1
@@ -17,55 +10,44 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
-        double media(double[] serie)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
-            double suma = 0;
-            for (int i = 0; i < serie.Length; i++)
+            if (!double.TryParse(txtMonto.Text, out double monto) || monto <= 0)
             {
-                suma += serie[i];
+                lblRespuesta.Text = "valor a pagar: Ingrese un monto válido";
+                return;
             }
-            double media = suma / serie.Length;
-            return media;
-        }
-        double desviacionTipica(double[] serie, double media)
-        {
-            return Math.Sqrt(serie.Average(n => Math.Pow(n - media, 2)));
-        }
-        double varianza(double[] serie, double media)
-        {
-            double sumaCuadrados = 0;
-            for (int i = 0; i < serie.Length; i++)
+
+            (double desde, double hasta, double precio, double adicional)[] tabla =
             {
-                sumaCuadrados += Math.Pow(serie[i], 2);
+                (0.01, 500, 1.5, 0),
+                (500.01, 1000, 1.5, 3),
+                (1000.01, 2000, 3, 3),
+                (2000.01, 3000, 6, 3),
+                (3000.01, 6000, 9, 2),
+                (8000.01, 18000, 15, 2),
+                (18000.01, 30000, 39, 2),
+                (30000.01, 60000, 63, 1),
+                (60000.01, 100000, 93, 0.8),
+                (100000.01, 200000, 125, 0.7),
+                (200000.01, 300000, 195, 0.6),
+                (300000.01, 400000, 255, 0.45),
+                (400000.01, 500000, 300, 0.4),
+                (500000.01, 1000000, 340, 0.30),
+                (1000000.01, 99999999, 490, 0.18)
+            };
+
+            foreach (var t in tabla)
+            {
+                if (monto >= t.desde && monto <= t.hasta)
+                {
+                    double impuesto = ((monto - t.desde) / 1000.0) * t.adicional + t.precio;
+                    lblRespuesta.Text = $"valor a pagar: ${impuesto:0.00}";
+                    return;
+                }
             }
-            double varianza = (sumaCuadrados / serie.Length) - Math.Pow(media, 2);
-            return varianza;
-        }
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            String[] serie = txtSerie.Text.Split(',');
-            double[] miSerie = serie.Select(n => double.Parse(n)).ToArray();
-            double m = media(miSerie);
 
-            ltsValores.Items.Add("La media es: " + m);
-            ltsValores.Items.Add("La desviacion tipica: " + desviacionTipica(miSerie, m));
-            ltsValores.Items.Add("La varianza es: " + varianza(miSerie, m));
-        }
-
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
-        private void limpiar()
-        {
-            ltsValores.Items.Clear();
-            //txtSerie.Clear();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            lblRespuesta.Text = "valor a pagar: Monto fuera de rango";
         }
     }
 }
