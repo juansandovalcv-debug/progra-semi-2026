@@ -46,7 +46,7 @@
             // 
             // txtSerie
             // 
-            txtSerie.Location = new Point(128, 54);
+            txtSerie.Location = new Point(139, 57);
             txtSerie.Name = "txtSerie";
             txtSerie.Size = new Size(230, 27);
             txtSerie.TabIndex = 1;
