@@ -16,56 +16,5 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
-        double media(double[] serie)
-        {
-            double suma = 0;
-            for (int i = 0; i < serie.Length; i++)
-            {
-                suma += serie[i];
-            }
-            double media = suma / serie.Length;
-            return media;
-        }
-        double desviacionTipica(double[] serie, double media)
-        {
-            return Math.Sqrt(serie.Average(n => Math.Pow(n - media, 2)));
-        }
-        double varianza(double[] serie, double media)
-        {
-            double sumaCuadrados = 0;
-            for (int i = 0; i < serie.Length; i++)
-            {
-                sumaCuadrados += Math.Pow(serie[i], 2);
-            }
-            double varianza = (sumaCuadrados / serie.Length) - Math.Pow(media, 2);
-            return varianza;
-        }
-        private void btnProcesar_Click(object sender, EventArgs e)
-        {
-            String[] serie = txtSerie.Text.Split(',');
-            double[] miSerie = serie.Select(n => double.Parse(n)).ToArray();
-            double m = media(miSerie);
-
-            ltsValores.Items.Add("La media es: " + m);
-            ltsValores.Items.Add("La desviacion tipica: " + desviacionTipica(miSerie, m));
-            ltsValores.Items.Add("La varianza es: " + varianza(miSerie, m));
-        }
-
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
-        private void limpiar()
-        {
-            ltsValores.Items.Clear();
-            //txtSerie.Clear();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
