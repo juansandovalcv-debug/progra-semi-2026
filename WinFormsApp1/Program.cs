@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+namespace miPrimeaAplicacion
 {
     internal static class Program
     {
