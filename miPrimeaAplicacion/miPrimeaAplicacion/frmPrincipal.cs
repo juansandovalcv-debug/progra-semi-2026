@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +41,14 @@ namespace miPrimeaAplicacion
             frmPeriodos objPeriodo = new frmPeriodos();
             objPeriodo.MdiParent = this;
             objPeriodo.Show();
+        }
+
+        // Abrir el formulario de administración de usuarios
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_usuario objUsuario = new frm_usuario();
+            objUsuario.MdiParent = this;
+            objUsuario.Show();
         }
     }
 }
